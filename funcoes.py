@@ -7,3 +7,10 @@ def define_posicoes (linha,coluna,orientacao,tamanho):
         for i in range(tamanho):
             lista1.append([linha,coluna+i])
     return lista1
+def preenche_frota(dfrota,nnavio,linha,coluna, orientacao, tamanho):
+    posicoes = define_posicoes(linha, coluna, orientacao, tamanho)
+    if nnavio in dfrota:
+        dfrota[nnavio].append(posicoes)
+    else:
+        dfrota[nnavio] = [posicoes]
+    return dfrota
