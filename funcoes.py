@@ -47,3 +47,16 @@ def afundados (frota,tabuleiro):
             if atingidas==(len(i)):
                 soma+=1
     return soma
+def posicao_valida( frota, linha, coluna, orientacao, tamanho):
+    posicoes= define_posicoes(linha,coluna, orientacao, tamanho)
+    for posicao in posicoes:
+        l=posicao[0]
+        c=posicao[1]
+        if l<0 or l>9 or c<0 or c>9:
+            return False
+        for nome_navio in frota:
+            for navio in frota[nome_navio]:
+                for p in navio:
+                    if p[0] ==l and p[1] == c:
+                        return False
+    return True
